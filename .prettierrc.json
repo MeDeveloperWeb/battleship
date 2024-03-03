@@ -1,12 +1,15 @@
 {
-    "singleQuote": true,
-    "semi": true,
-    "overrides": [
-        {
-            "files": ["*.html", "*.css"],
-            "options": {
-                "singleQuote": true
-            }
-        }
-    ]
+	"singleQuote": true,
+	"semi": true,
+	"tabWidth": 4,
+	"useTabs": true,
+	"trailingComma": "none",
+	"overrides": [
+		{
+			"files": ["*.html", "*.css"],
+			"options": {
+				"singleQuote": true
+			}
+		}
+	]
 }
