@@ -1,33 +1,38 @@
-export default function Ship(len, title = '') {
-	if (typeof len !== 'number' || len <= 0) throw Error('Invalid Length!');
+export default class Ship {
+	#length = 0;
 
-	if (typeof title !== 'string') throw Error('Invalid Name!');
+	#hits = 0;
 
-	const length = len;
+	#name = '';
 
-	const name = title || `Ship${length}${Math.floor(Math.random() * 1000)}`;
+	constructor(len, title = '') {
+		if (typeof len !== 'number' || len <= 0) throw Error('Invalid Length!');
 
-	let hits = 0;
+		if (typeof title !== 'string') throw Error('Invalid Name!');
 
-	return {
-		get length() {
-			return length;
-		},
+		this.#length = len;
 
-		get name() {
-			return name;
-		},
+		this.#name =
+			title || `Ship${this.#length}${Math.floor(Math.random() * 1000)}`;
+	}
 
-		get hits() {
-			return hits;
-		},
+	get length() {
+		return this.#length;
+	}
 
-		hit() {
-			++hits;
-		},
+	get name() {
+		return this.#name;
+	}
 
-		isSunk() {
-			return hits >= length;
-		}
-	};
+	get hits() {
+		return this.#hits;
+	}
+
+	hit() {
+		++this.#hits;
+	}
+
+	isSunk() {
+		return this.#hits >= this.#length;
+	}
 }
